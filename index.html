@@ -3,10 +3,10 @@ const url = document.URL
 const urlSplit = url.split("?").pop()
 const params_ = urlSplit.split("_")
 
-const name_ = params_[0].split("=").pop()
-const towr_ = params_[1].split("=").pop()
-const time_ = params_[2].split("=").pop()
-const diff_ = params_[3].split("=").pop()
+const name_ = params_[0]
+const towr_ = params_[1]
+const time_ = params_[2]
+const diff_ = params_[3]
 
 const request = new XMLHttpRequest();
 request.open("POST", "https://discord.com/api/webhooks/1160438261597077514/NOLJ3NeoTd5I65TY3efue6erCg2K2acu8XWGEeYf7gbBNI8kSNVBMpZwuWUI6-OrNMdQ");
@@ -26,7 +26,7 @@ const params = {
                 },
                 {
                     "name": "Tower :",
-                    "value": towr_
+                    "value": towr_.replace("%20", " ")
                 },
                 {
                     "name": "Time :",
