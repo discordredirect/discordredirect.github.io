@@ -8,17 +8,45 @@ const towr_ = params_[1]
 const time_ = params_[2]
 const diff_ = params_[3]
 
+const loot_ = [
+    "easy=3407616", 
+    "medium=16121600", 
+    "hard=16745728", 
+    "difficult=16711680", 
+    "challenging=8585216", 
+    "intense=1315860", 
+    "remorseless=16711915", 
+    "insane=1310975", 
+    "extreme=26367", 
+    "terrifying=55039", 
+    "catastrophic=16777214"
+]
+
 const request = new XMLHttpRequest();
 request.open("POST", "https://discord.com/api/webhooks/1160438261597077514/NOLJ3NeoTd5I65TY3efue6erCg2K2acu8XWGEeYf7gbBNI8kSNVBMpZwuWUI6-OrNMdQ");
 
 request.setRequestHeader('Content-type', 'application/json');
+
+const colNum = 0
+
+for (let i=0;i<loot_.length;i++) {
+
+    const lootIndex = loot_[i].split("=")
+    const diff__ = lootIndex[0]
+    const num = lootIndex[1]
+
+    if (diff__ == diff_) {
+        colNum = num
+    }
+
+}
 
 const params = {
     "content": null,
     "embeds": [
         {
             "title": "WE HAVE A WINNER!",
-            "color": 16777214,
+            "color": colNum,
             "fields": [
                 {
                     "name": "Name :",
@@ -26,7 +54,7 @@ const params = {
                 },
                 {
                     "name": "Tower :",
-                    "value": towr_.replace("%20", " ")
+                    "value": towr_.replace(/%20/g, " ")
                 },
                 {
                     "name": "Time :",
