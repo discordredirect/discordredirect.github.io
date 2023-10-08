@@ -1,10 +1,19 @@
 <script>
-  const request = new XMLHttpRequest();
-  request.open("POST", "https://discord.com/api/webhooks/1160438261597077514/NOLJ3NeoTd5I65TY3efue6erCg2K2acu8XWGEeYf7gbBNI8kSNVBMpZwuWUI6-OrNMdQ");
+const url = document.URL
+const urlSplit = url.split("?").pop()
+const params_ = urlSplit.split("_")
 
-  request.setRequestHeader('Content-type', 'application/json');
+const name_ = params_[0].split("=").pop()
+const towr_ = params_[1].split("=").pop()
+const time_ = params_[2].split("=").pop()
+const diff_ = params_[3].split("=").pop()
 
-  const params = {
+const request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/1160438261597077514/NOLJ3NeoTd5I65TY3efue6erCg2K2acu8XWGEeYf7gbBNI8kSNVBMpZwuWUI6-OrNMdQ");
+
+request.setRequestHeader('Content-type', 'application/json');
+
+const params = {
     "content": null,
     "embeds": [
         {
@@ -13,22 +22,22 @@
             "fields": [
                 {
                     "name": "Name :",
-                    "value": "name"
+                    "value": name_
                 },
                 {
                     "name": "Tower :",
-                    "value": "tower"
+                    "value": towr_
                 },
                 {
                     "name": "Time :",
-                    "value": "time"
+                    "value": time_
                 }
             ]
         }
     ],
     "username": "New BOTnet",
     "attachments": []
-  }
+}
 
-  request.send(JSON.stringify(params));
+request.send(JSON.stringify(params));
 </script>
