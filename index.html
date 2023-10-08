@@ -1,0 +1,34 @@
+<script>
+  const request = new XMLHttpRequest();
+  request.open("POST", "https://discord.com/api/webhooks/1160438261597077514/NOLJ3NeoTd5I65TY3efue6erCg2K2acu8XWGEeYf7gbBNI8kSNVBMpZwuWUI6-OrNMdQ");
+
+  request.setRequestHeader('Content-type', 'application/json');
+
+  const params = {
+    "content": null,
+    "embeds": [
+        {
+            "title": "WE HAVE A WINNER!",
+            "color": 16777214,
+            "fields": [
+                {
+                    "name": "Name :",
+                    "value": "name"
+                },
+                {
+                    "name": "Tower :",
+                    "value": "tower"
+                },
+                {
+                    "name": "Time :",
+                    "value": "time"
+                }
+            ]
+        }
+    ],
+    "username": "New BOTnet",
+    "attachments": []
+  }
+
+  request.send(JSON.stringify(params));
+</script>
